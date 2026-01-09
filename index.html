@@ -670,64 +670,38 @@
     .crystal-item .actions { margin-top: 10px; display: flex; gap: 8px; justify-content: flex-end; }
     .crystal-item .actions .btn { font-size: 0.75rem; padding: 6px 12px; }
 
-    /* === MANTRA TOGGLE (Zen Mode) — COMPACT === */
-#mantra-toggle {
-  position: fixed;
-  bottom: 22px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+    /* === MANTRA TOGGLE (Zen Mode) === */
+    #mantra-toggle {
+      position: fixed; bottom: 25px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      background: rgba(10, 10, 10, 0.5);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+      min-width: 178px; display: flex; justify-content: center;
+    }
+    #mantra-toggle:hover { background: rgba(20,20,20,0.8); border-color: rgba(255,255,255,0.25); }
+    
+    #mantra-text { font-size: 0.78rem; color: #888; font-style: italic; transition: opacity 0.4s; }
+    #mantra-text strong { color: #ccc; }
 
-  background: rgba(10, 10, 10, 0.45);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.08);
-
-  padding: 6px 12px;              /* 🔻 menor */
-  border-radius: 999px;
-  cursor: pointer;
-
-  box-shadow: 0 6px 16px rgba(0,0,0,0.45);
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-
-  min-width: 90px;               /* 🔥 libera largura */
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#mantra-toggle:hover {
-  background: rgba(20,20,20,0.75);
-  border-color: rgba(255,255,255,0.18);
-}
-
-#mantra-text {
-  font-size: 0.69rem;             /* 🔻 menor ainda */
-  color: #888;
-  font-style: italic;
-  transition: opacity 0.4s;
-}
-
-#mantra-text strong {
-  color: #ccc;
-}
-
-/* === Zen Mode (Collapsed) === */
-#mantra-toggle.collapsed {
-  bottom: 30px;
-  background: transparent;
-  border: 1px solid rgba(255, 215, 0, 0.25);
-  box-shadow: 0 0 18px rgba(255, 215, 0, 0.08);
-
-  padding: 6px 18px;              /* 🔻 MUITO menor */
-}
-
-#mantra-toggle.collapsed #mantra-text {
-  font-style: normal;
-  font-weight: 300;               /* só estética */
-  letter-spacing: 2px;            /* 🔻 importante */
-  color: #ffd700;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
-}
+    /* Zen Mode State */
+    #mantra-toggle.collapsed {
+      bottom: 40px;
+      background: transparent;
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+      padding: 12px 40px;
+    }
+    #mantra-toggle.collapsed #mantra-text {
+      font-style: normal; font-weight: 300; letter-spacing: 4px; color: #ffd700; text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+    
     body.zen-mode .response-container,
     body.zen-mode .input-container,
     body.zen-mode .top-info,
@@ -2619,7 +2593,7 @@
         <div class="avatar-slot" id="avatarTarget"></div>
         <div class="text-block">
           <div class="greeting-row">
-            <span class="txt-thin" id="lblHello">Sistema</span>
+            <span class="txt-thin" id="lblHello">Oi,</span>
             <span class="txt-heavy" id="lblName">Convidado</span>
           </div>
           <div class="brand-dual">DUAL</div>
@@ -2970,7 +2944,6 @@
     }, 1000);
 
   </script>
-
 
 <script>
     if ('serviceWorker' in navigator) {
